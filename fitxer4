@@ -1,0 +1,271 @@
+https://guides.github.com/activities/hello-world/
+
+Github Cheat Sheet:
+https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
+
+Farem un cas pràctic del cicle de vida d'un projecte de Github a partir del projecte fusionar_geojson.
+
+========
+git config --global user.name "joanillo"
+Sets the name you want attached to your commit transactions
+
+Crear un repositori
+cd /home/joan/projectes/OSM/fusionar_geojson
+git init
+
+Es crea la carpeta .git
+
+Especifiqueu l'URL des de la línia d'ordres o bé configureu un dipòsit remot fent servir
+
+    git remote add <nom> <url>
+
+i després pugeu fent servir el nom remot
+
+    git push <nom>
+
+
+git remote add fusionar_geojson https://github.com/joanillo/
+git push fusionar_geojson
+fatal: La branca actual master no té cap branca font.
+Per a pujar la branca actual i establir el remot com a font, useu
+
+git push --set-upstream fusionar_geojson master
+
+git remote add upstream https://github.com/joanillo/fusionar_geojson.git
+
+https://webkul.com/blog/syncing-local-repository-with-remote-repository-on-github/
+==============
+Seguim
+Adding an existing project to GitHub using the command line
+
+https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+1. Create a new repository on GitHub.
+En el GitHub ho fem manualment. Creem el projecte amb el mateix nom que la carpeta del projecte
+
+Crear un repositori en local
+cd /home/joan/projectes/OSM/fusionar_geojson
+git init
+Es crea la carpeta .git
+
+Add the files in your new local repository. This stages them for the first commit.
+
+$ git add .
+# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
+
+Commit the files that you've staged in your local repository.
+
+$ git commit -m "First commit"
+# Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+
+7.
+https://github.com/joanillo/fusionar_geojson.git
+
+8.
+In Terminal, add the URL for the remote repository where your local repository will be pushed.
+
+$ git remote add origin https://github.com/joanillo/fusionar_geojson.git
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL
+
+9.
+Push the changes in your local repository to GitHub.
+
+$ git push origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
+
+Username for 'https://github.com': joanillo
+Password for 'https://joanillo@github.com': 
+S'estan comptant els objectes: 78, fet.
+Delta compression using up to 4 threads.
+S'estan comprimint objectes: 100% (78/78), fet.
+S'estan escrivint els objectes: 100% (78/78), 3.03 MiB | 961.00 KiB/s, fet.
+Total 78 (delta 42), reused 0 (delta 0)
+remote: Resolving deltas: 100% (42/42), done.
+To https://github.com/joanillo/fusionar_geojson.git
+ * [new branch]      master -> master
+
+
+i ara ens demana el login i password del nostre compte, i ja es pugen les dades.
+
+En remot tenim la branca master
+===================
+*https://webkul.com/blog/syncing-local-repository-with-remote-repository-on-github/
+
+cd /home/joan
+
+Step 1: Clone your project with the command.
+git clone https://github.com/joanillo/fusionar_geojson.git
+
+Step 2: List the current configured remote repository for your fork.
+
+$ cd fusionar_geojson/
+joan@joanHP:~/fusionar_geojson$ git remote -v
+origin	https://github.com/joanillo/fusionar_geojson.git (fetch)
+origin	https://github.com/joanillo/fusionar_geojson.git (push)
+========
+Treballar amb branques
+https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+$ git pull
+per posar al dia la nostra branca
+
+Create the branch on your local machine and switch in this branch :
+
+$ git checkout -b [name_of_your_new_branch]https://ourcodingclub.github.io/tutorials/git/
+$ git checkout -b branca_nova
+
+Push the branch on github :
+
+$ git push origin [name_of_your_new_branch]
+$ git push origin branca_nova
+
+i efectivament, al remot tenim la nova branca
+
+Per saber les branques que tinc: (amb * surt la branca actual)
+$ git branch -a
+* branca_nova
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/branca_nova
+  remotes/origin/master
+========================================
+https://ourcodingclub.github.io/tutorials/git/
+
+Un possible flux de treball seria:
+1. Estic treballant en un projecte, i tinc la primera versió
+2. Des de la línia de comandes, crear el projecte a github.com
+3. Crear el repositori màster a   github.com
+4. Vaig a fer una nova versió. A github.com, crear una branca
+5. Descarregar aquesta branca de github.com a local
+6. Treballar en la nova branca
+7. Pujar els canvis a github.com
+8. Comparar les dues branques
+9. Fer un merge
+
+
+(watchdog)
+
+Segueixo la part que diu:
+Below is a quick exercise so you can familiarise yourself with these command line tools.
+
+git commit -m "first commit"
+
+
+https://github.com/joanillo
+Go to Github and create a repository called git_test,
+
+git remote add origin https://github.com/joanillo/git_test.git
+git push -u origin master
+
+joe fitxer1
+joe fitxer2
+
+git add .
+git commit -m "canvi 2"
+git push -u origin master
+
+---
+ara faig un canvi en el fitxer2 de github.com, i el gravo.
+
+Si vull tenir els canvis en local, he de fer git pull
+---
+fins ara he treballat en una sola branca. Ara vull crear una nova branca, en local.
+
+Create the branch on your local machine and switch in this branch :
+
+$ git checkout -b [name_of_your_new_branch]https://ourcodingclub.github.io/tutorials/git/
+$ git checkout -b branca_nova
+
+(l'opció -b és per crear. Si només vull canviar només seria git checkout <branca>. git checkout --help)
+
+Push the branch on github :
+
+$ git push origin [name_of_your_new_branch]
+$ git push origin branca_nova
+
+i efectivament, al remot tenim la nova branca
+
+Per saber les branques que tinc: (amb * surt la branca actual)
+$ git branch -a
+* branca_nova -> local (branca actual)
+  master -> local
+  remotes/origin/branca_nova -> remot Github.com
+  remotes/origin/master -> remot Github.com
+
+canvis a fitxer2
+git commit -a	Working Dir	Local	adds and commits all file changes to the local repo.
+git commit -a -m "commit sense fer add ni stagina area"
+$ git push origin branca_nova
+
+Compte perquè l'opció -a només serveix per fer el stage dels canvis que s'han modificat i esborrat, però no dels fitxers nous. La idea de la -a és ''add changes'', però no pas afegir fitxers nous.
+git commit --help
+
+i ara ja puc veure com el fitxer2 té versions diferents en la branca master i en la branca_nova.
+
+Per veure les diferències entre les dues branques:
+$ git diff master branca_nova
+
+I ara vull incorporar a la branca master els canvis que he fet en la branca_nova.
+Primer canvio a la branca master:
+$ git checkout master
+
+(comprovar fent joe fitxer2)
+
+Faig el merge de la branca_nova a la branca master (la branca actual)
+$ git merge branca_nova
+
+(comprovar fent joe fitxer2)
+
+I ara ja puc actualitzar la branca master del remot
+
+$ git commit -a -m "he fet el merge de branca_nova"
+
+i ara ho pujo a la branca master
+$ git push origin master
+
+És a dir, el merge el faig en local. Tant en local com en remot tinc el control de versions (tot i que no es visualitza en carpetes).
+
+Per tant, quan creo una nova versió d'un projecte, no s'ha de crear una carpeta, sinó que n'hi ha prou en crear una branca.
+---
+Ara continuo desenvolupant. Puc crear una nova branca, o continuar treballant amb la branca_nova, que considero de desenvolupament. És a dir, la branca master es considera que és la branca de producció, i la branca_nova de desenvolupament.
+
+$ git checkout branca_nova
+
+creo dos fitxers 
+joe fitxer3
+joe fitxer.pdf
+
+Els fitxers pdf vull que siguin ignorats, així com el fitxer ocult .pwd i els fitxers temporals que acaben amb ~
+
+The .gitgnore file
+Sometimes it may be a good idea to exclude files from being
+tracked with Git. This is typically done in a special file named
+ .gitignore . You can find helpful templates for .gitignore
+files at github.com/github/gitignore
+
+.gitignore es crea en la carpeta principal:
+
+# Prevent users to commit password
+.pwd
+# Temporary files
+*~
+#pdf files
+*.pdf
+
+$ git add .
+$ git commit -m "provo gitignore"
+$ git push origin branca_nova
+
+I ara efectivament a Github.com ja tinc el fitxer3, però el pdf no s'ha pujat.
+
+Explicació de la staging area:
+https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh
+Imagine a box. You can put stuff into the box. You can take stuff out of the box. This box is the staging area of Git. You can craft commits here. Committing is like sealing that box and sticking a label on it. The contents of that box are your changes. So, why not have the label mean something? You wouldn’t label a moving box with kitchen items as simply “stuff.”
+
+$ git add . -> poso els fitxers del working Dir a la staging area
+$ git commit -m "provo gitignore" -> Faig el commit en el git local, segello els canvis (abans de sincronitzar amb github.com, o no)
+
+$ git commit -a -m "provo gitignore" -> poso els fitxers del working Dir directament al commit local (però compte, només els fitxers canviats i esborrats, no pas els nous).
+
+

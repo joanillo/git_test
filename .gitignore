@@ -1,0 +1,6 @@
+# Prevent users to commit password
+.pwd
+# Temporary files
+*~
+#pdf files
+*.pdf
